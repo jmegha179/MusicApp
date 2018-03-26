@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Example</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+<body>
+<div ng-app = "">
+<input ng-model = "calculator" style = "width:300px;">
+<p>{{calculator + " = " + ($eval(calculator)| number)}}</p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script type = "text/javascript" src = "index.js">
+<title>
+Login Page
+</title>
+<style>
+#box{
+margin-left:60px;
+}
+#b1
+{
+	width:400px;
+	height:320px;
+	border:1px solid #000;
+		margin-left:250px;
+		border-radius:20px;
+	background-color:#F5F5F5;
+}
+</style>
+</head>
+<body>
+<br>
+<h2 style="margin-top:50px"><strong>HRMS MANAGEMENT SYSTEM</strong></h2>
+<hr>
+<div class = "container">
+<form  name  = "form1" ng-app novalidate ng-app = "myApp" ng-controller = "myCtrl">
+<div class = "row">
+<div class = "col-md-4"></div>
+<div class = "col-md-4"><h3 style ="color:#396C78;"><strong>Login</strong></h3></div>
+<div class = "col-md-4"></div>
+</div>
+<br>
+<div class = "row">
+<div class = "col-md-10" id = "b1" >
+<br>
+<div class = "col-md-10" id ="box">
+<h4   ><strong>username</strong></h4>
+<div class="input-group">
+<span   class="input-group-addon"><i style="color:#396C78" class="fa fa-user"></i></span>
+<input type = "text" name = "firstname" ng-model = "firstname"    placeholder = "user name" required ></div>
+<span ng-show = "submitted && form1.$invalid" style = "color:red"> User Name is Required!</span>
+<h4><strong>Password</strong></h4>
+<div class="input-group">
+<span   class="input-group-addon"><i style="color:#396C78" class="fa fa-lock"></i></span>
+<input type = "password"    name = "pass" ng-model = "pass" placeholder = "Password *****" required></div>
+<span ng-show = "submitted && form1.$invalid" style = "color:red"> Password is Required!</span>
+<br>
+<!--<input type="checkbox" ng-model="showHide1">Show Button 
+<input type ="submit"  ng-show="showHide1" value = "Login" ng-click = "submitted = true">-->
+<input type="checkbox"  ng-model = "showHide1" ><b>I accept the Term And Condiition </b>
+<input type = "submit" ng-show = "showHide1" value = "Login"  style = "background-color:#396C78;width:220px" ng-click = "submitted = true">
+<br>
+<br>
+<br>
+<h5 class = "name " style ="color:#396C78;"><a href ="forget.html"><strong>Forget Password</strong></a></h5>
+</div>
+</div>
+</div>
+<br>
+<br>
+</form>
+</div>
+</body>
+</html>

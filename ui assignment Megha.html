@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>	
+	var flag=0;
+	function validateForm() 
+		{
+		  var x = document.getElementById("fn").value;
+			if (x == "") 
+				{
+				document.getElementById("fn1").innerHTML="Enter your first name";
+				flag=1;
+			return false;
+				}
+				else{
+				document.getElementById("fn1").innerHTML="";
+				flag=0;
+			return true;
+				}
+			}
+	function validateForm1() 
+		{
+		  var x = document.getElementById("ln").value;
+			if (x == "") 
+				{
+				document.getElementById("fn2").innerHTML="Enter your last name";
+				flag=1;
+			return false;
+				}
+				else{
+				document.getElementById("fn2").innerHTML="";
+				flag=0;
+			return true;
+				
+				}
+			}
+		
+	function isalfa(e)
+		{
+			var c=((e.which>=65 && e.which<=90) || e.which==8)
+			{
+			}
+			return c;
+		}
+	function isint(e)
+		{
+			var a=((e.which>=48 && e.which<=57) || e.which==8)
+			{
+			}
+			return a;
+		}
+		function validate()
+		{
+			var password = document.getElementById("p").value;
+			var confirmPassword = document.getElementById("cp").value;
+			if (password != confirmPassword) 
+			{
+				document.getElementById("cf").innerHTML="Passwor do not match";
+				flag=1;
+				return false;
+			}
+			else
+			{
+			document.getElementById("cf").innerHTML="";
+				flag=0;
+			return true;
+			}
+    }
+	
+		function validateEvent()
+		{
+		   
+		   
+		   {
+		    validateForm(); 
+		   validateForm1();
+			validate();
+			uncheck();
+			}		
+			if(flag==1)
+			{
+			return false;
+		alert('All feild must be filled prpoerly')
+			} 
+			else
+			{ flag = 0;
+			 return true;  
+		   }
+		}
+		function validateEmail(emailField){
+		
+        var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+
+        if (reg.test(emailField.value) == false) 
+        {
+            alert('Invalid Email Address');
+			flag=1;
+            return false;
+        }
+        else
+		{ 
+		flag = 0;
+		return true;
+		}
+		
+        return true;
+
+      }
+	  function uncheck()
+	  {
+    var yes = document.getElementById("check").checked;
+	if(yes)
+	{
+	}
+	else
+	{ 
+	alert('accet term and condition');
+	}
+        }
+		
+	</script>
+	
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="one.css">
+
+<!-- jQuery library -->
+<script src="two.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="third1.js"></script>
+<link rel="stylesheet" href="ui1.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+<title>
+Hrms Management system
+</title>
+</head>
+<body>
+<h1 style="color:black;margin-left:800px"><b>Registration Form</b></h1>
+<div class = "container">
+	<form action="new.html">
+	<div class = "row">
+		<div class = "col-md-2"></div>
+		<div class = "col-md-3">
+			<label style="margin-left:200px;margin-top:20px;color:#1B2631"><h4><b>Email*</b></h4></label>
+		</div>
+		<div class = "col-md-3">
+		<input type = "email" onblur="validateEmail(this);" class="form-control" style="margin-left:10px;margin-top:25px" id="en" placeholder = "Defalt@gmail.com" required>
+		</div>
+		
+	
+		<div class = "col-md-2"></div>
+	</div>
+	
+	<div class = "row">
+		 <div class = "col-md-2"></div>
+		 <div class = "col-md-3">
+			<label style="margin-left:200px;color:#1B2631"><h4><b>Password*</b></h4></label>
+		</div>
+		 <div class = "col-md-3">
+		 <input type = "password" class="form-control " style="margin-left:10px" placeholder = "type Password" id="p"    required>
+			</div>
+		<div class = "col-md-2"></div>
+	</div>
+	<div class = "row">
+		 <div class = "col-md-2"></div>
+		 <div class = "col-md-3">
+			<label style="margin-left:200px;color:#1B2631"><h4><b>Confirm Password*</b></h4></label>
+		</div>
+		 <div class = "col-md-3">
+			<input type = "password" class="form-control " style="margin-left:10px"  onblur="return validate();" placeholder = "Retype Password" id = "cp" required></div>
+		 <div class = "col-md-4"><label id="cf" style="color:red;font-size:15px;margin-left:350x"></label></div>
+		</div>
+		<hr>
+	<div class = "row">
+		 <div class = "col-md-2"></div>
+		 <div class = "col-md-3">
+			<label style="margin-left:200px;color:#1B2631"><h4><b>First Name</b></h4></label>
+		</div>
+		 <div class = "col-md-3">
+			<input type = "text" class="form-control " id="fn"  onblur="return validateForm();" onkeydown="return isalfa(event);" style="margin-left:10px" required >
+		</div>
+		 <div class = "col-md-4"><label id="fn1" style="color:red;font-size:15px;"></label></div>
+		</div>
+		<div class = "row">
+		 <div class = "col-md-2"></div>
+		 <div class = "col-md-3">
+			<label style="margin-left:200px;color:#1B2631"><h4><b>Last NAme</b></h4></label>
+		</div>
+		<div class = "col-md-3">
+			<input type = "text" class="form-control " id="ln" onblur="return validateForm1();" onkeydown="return isalfa(event);" style="margin-left:10px" required />
+		</div>
+		 <div class = "col-md-4"><label id="fn2" style="color:red;font-size:15px;margin-left:350x"></label></div>
+		</div>
+		<div class = "row">
+		 <div class = "col-md-2"></div>
+			<div class = "col-md-3">
+		     <label style="margin-left:200px;color:#1B2631"><h4><b>Date Of Birth</b></h4></label>
+		</div>
+		<div class = "col-md-3">
+				<input type = "Date" class="form-control"  style="margin-left:10px"></div>
+		<div class = "col-md-2"></div>
+		</div>
+		<hr>
+	<div class = "row">
+		<div class = "col-md-2"></div>
+		<div class = "col-md-3">
+		 <label style="margin-left:200px;color:#1B2631"><h4><b>Address</b></h4></label>
+		</div>
+		<div class = "col-md-3">
+		 <input type = "text" class="form-control "  style="margin-left:10px"></div>
+		<div class = "col-md-2"></div>
+		</div>
+		<div class = "row">
+		 <div class = "col-md-2"></div>
+		<div class = "col-md-3">
+			<label style="margin-left:200px;color:#1B2631"><h4><b>City</b></h4></label>
+		</div>
+		<div class = "col-md-3">
+		 <select class="form-control dd"  style="margin-left:10px" >
+			<option>Pune.</option>
+			<option>Banglore</option>
+			<option>Mumbai</option>
+			<option>Hydrabad</option>
+			<option>Chenai</option>
+		 </select>
+		</div>
+	<div class = "col-md-2"></div>
+		</div>
+		<div class = "row">
+		<div class = "col-md-2"></div>
+		<div class = "col-md-3">
+		<label style="margin-left:200px;color:#1B2631"><h4><b>Country</b></h4></label>
+		</div>
+		<div class = "col-md-3">
+		 <select class="form-control dd"  style="margin-left:10px" >
+			<option>India</option>
+			<option>U.K.</option>
+			<option>U.S.</option>
+			<option>Canada</option>
+			<option>China</option>
+		 </select>
+		</div>
+		<div class = "col-md-2"></div>
+		</div>
+	<div class = "row">
+		<div class = "col-md-2"></div>
+		<div class = "col-md-3">
+		 <label style="margin-left:200px;color:#1B2631"><h4><b>State</b></h4></label>
+		</div>
+		<div class = "col-md-3">
+		 <select class="form-control dd" style="margin-left:10px" >
+			<option>M.P.</option>
+			<option>U.P.</option>
+			<option>A.P.</option>
+			<option>Mharashtra</option>
+			<option>Delhi</option>
+		 </select>
+		</div>
+		<div class = "col-md-2"></div>
+		</div>
+		<hr>
+	<div class = "row">
+		<div class = "col-md-2"></div>
+		<div class = "col-md-3">
+			<label style="margin-left:200px;color:#1B2631"><h4><b>Phone Number</b></h4></label>
+		</div>
+		<div class = "col-md-3">
+		  <input type = "text" class="form-control "  onkeydown="return isint(event); "maxlength="10"  style="margin-left:10px" placeholder = "10 digit"></div>
+		<div class = "col-md-2"></div>
+		</div>
+	<div class = "row">
+		<div class = "col-md-2"></div>
+		<div class = "col-md-3">
+			<label style="margin-left:200px;color:#1B2631"><h4><b>Zip Code</b></h4></label>
+		</div>
+		<div class = "col-md-3">
+			<input type = "text" class="form-control "  onkeydown="return isint(event);" maxlength="6"  style="margin-left:10px" placeholder = "6 digit"></div>
+		<div class = "col-md-2"></div>
+		</div>
+	<div class = "row">
+		<div class = "col-md-2"></div>
+		<div class = "col-md-8">
+			<input type="checkbox" name="vehicle" value="Bike" style="margin-left:200px" id="check" ><b>I accept the Term And Condiition</b>
+		</div>
+		<div class = "col-md-2"></div>
+		</div>
+	<div class = "row">
+		<div class = "col-md-12">
+			<button type="submit" style="margin-left:500px;color:white" onclick = "return validateEvent();" class = "btn1" ></b>Register</b></button>
+			<button type="reset" style="color:white" class = "btn2"><b>Reset</b></button><hr>
+		</div>
+		</form>
+	</div>
+</div> 
+</body>
+<html>

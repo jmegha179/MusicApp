@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<title>
+Hrms Management system
+</title>
+</head>
+<body>
+
+<div ng-app="myApp" ng-controller="myCtrl">
+<ul> 
+<li ng-repeat = "x in user | orderBy : ' balance '"> 
+{{x.name}} - {{x.balance | currency : "Rs" }}
+<a href ="#" ng-click = "remove($index)">Delete</a>
+<a href = "#" ng-click = " edit(x)">Edit</a>
+</li>
+<li>
+ <input type = "text" id = "name" ng-model = "current.name" value ={{current.name}}> 
+ <input type = "text" id = "b"  ng-model = "current.balance"  value = {{current.balance}}>
+</li>
+<li>
+<button ng-click = "save(current)">Save</button>
+<button ng-click = "addNew(current)">Add</button></li>
+</ul>
+</div>
+<script>
+var app = angular.module("myApp", []);
+app.controller("myCtrl", function($scope) {
+ $scope.user = [{ name : 'Megha' , balance : 1230 },
+                 { name : 'Neelam' , balance : 3000 },
+                 { name : 'Mansi' , balance : 1500}];   
+ $scope.addNew = function(user){
+  alert("Adding new User");
+  $scope.user.push(user);
+  
+ }; 
+ $scope.remove = function(index){
+  alert("Deleting Index is" + index);
+  $scope.user.splice(index , 1);
+ };
+ 
+ $scope.edit = function(x){
+   $scope.current = x ;
+ };
+ $scope.save = function(user){
+ $scope.current = {};
+ }
+  $scope.current = {};
+  
+});
+</script>
+</body>
+</html>
